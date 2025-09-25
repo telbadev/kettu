@@ -36,26 +36,18 @@ class RouteDetail extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          Container(
-                            height: 20,
-                            width: 20,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(width: 4,color: Color(0xFF475569))
-                            ),
-                          ),
-                          SizedBox(width: 10,),
-                          Text("Your location",style: TextStyle(color: Color(0xFF475569),fontWeight: FontWeight.normal),),
-                        ],
+                      Container(
+                        height: 20,
+                        width: 20,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(width: 4,color: Color(0xFF475569))
+                        ),
                       ),
                       Container(
-                        height: 50,
-                        margin: EdgeInsets.only(left: 8),
+                        height: 45,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           gradient: LinearGradient(
@@ -67,25 +59,34 @@ class RouteDetail extends StatelessWidget {
                             ]
                           )
                         ),
+
                         width: 4,
                       ),
-                      Row(
-                        children: [
-                          Container(
-                            height: 20,
-                            width: 20,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(width: 4,color: Colors.blueAccent)
-                            ),
-                          ),
-                          SizedBox(width: 10,),
-                          Text("Toshkent, Sergeli",style: TextStyle(color: CupertinoColors.black,fontWeight: FontWeight.normal),),
-                        ],
+                      Container(
+                        height: 20,
+                        width: 20,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(width: 4,color: Colors.blueAccent)
+                        ),
                       )
                     ],
                   ),
-
+                  SizedBox(width: 10,),
+                  SizedBox(
+                    height: 85,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Your location",style: TextStyle(color: Color(0xFF475569),fontWeight: FontWeight.normal),),
+                        Text("Toshkent, Sergeli",style: TextStyle(color: CupertinoColors.black,fontWeight: FontWeight.normal),),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: ,
+                  )
                 ],
               ),
             ),
