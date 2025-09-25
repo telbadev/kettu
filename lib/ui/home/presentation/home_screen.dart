@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:kettu/data/theme/my_theme.dart';
+import 'package:kettu/ui/balance/presentation/balace_screen.dart';
 import 'package:kettu/ui/home/presentation/widgets/famous_places.dart';
 import 'package:kettu/ui/home/presentation/widgets/ticket_cart.dart';
 
@@ -49,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Text("\$0.00",style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black),),
                                 InkWell(
                                   onTap: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => BalaceScreen(),));
                                   },
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.end,

@@ -3,8 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:icons_plus/icons_plus.dart';
-import 'package:kettu/ui/route/presentation/route_detail.dart';
-import 'package:kettu/ui/route/presentation/route_screen.dart';
 
 import '../../../../data/theme/my_theme.dart';
 
@@ -43,7 +41,7 @@ class FamousPlaces extends StatelessWidget {
                               ClipRRect(
                                   borderRadius: BorderRadiusGeometry.circular(10),
                                   clipBehavior: Clip.hardEdge,
-                                  child: Image.asset(i.isEven?"assets/images/bux.png":"assets/images/sam.png",fit: BoxFit.cover,width: double.infinity,)
+                                  child: Image.asset("assets/images/almaty.jpg",fit: BoxFit.cover,width: double.infinity,)
                               ),
                               Positioned(
                                 top: 10,
@@ -78,9 +76,7 @@ class FamousPlaces extends StatelessWidget {
                               Text("890 \$",style: TextStyle(color: Theme.of(context).colorScheme.onPrimary,fontWeight: FontWeight.bold,fontFamily: "nothing",fontSize: 16),),
                               Spacer(),
                               MaterialButton(
-                                onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => RouteDetail()));
-                                },
+                                onPressed: () {},
                                 elevation: 0,
                                 color: Theme.of(context).colorScheme.onPrimary,
                                 height: 35,

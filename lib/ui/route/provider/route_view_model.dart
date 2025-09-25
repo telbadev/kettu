@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:kettu/ui/map/presentation/map_screen.dart';
 import 'package:kettu/utils/extension_and_enums.dart';
+import 'package:page_transition/page_transition.dart';
 
 class RouteViewModel extends ChangeNotifier {
   List<VehicleTypeEnum> vehicleList = [
@@ -13,7 +16,7 @@ class RouteViewModel extends ChangeNotifier {
 
 
   void changeVehicle(VehicleTypeEnum value) {
-    if(vehicleList.contains(value)) {
+    if (vehicleList.contains(value)) {
       vehicleList.remove(value);
     } else {
       vehicleList.add(value);
@@ -25,6 +28,13 @@ class RouteViewModel extends ChangeNotifier {
     routeItemIndex = index;
     print(routeItemIndex);
     notifyListeners();
+  }
+
+  void openMapScren(BuildContext context) {
+    context.pushReplacementTransition(
+      type: PageTransitionType.bottomToTop,
+      child: MapScreen(),
+    );
   }
 
 }

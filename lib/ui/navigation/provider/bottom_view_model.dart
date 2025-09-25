@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kettu/ui/profile/presentation/add_card_screen.dart';
 import 'package:kettu/ui/route/presentation/route_screen.dart';
 
 import '../../home/presentation/home_screen.dart';
@@ -11,7 +12,7 @@ class BottomNavViewModel extends ChangeNotifier {
     HomeScreen(),
     RouteScreen(),
     Container(),
-    Container()
+    ProfileScreen()
   ];
 
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kettu/ui/home/presentation/home_screen.dart';
 import 'package:kettu/ui/login/presentation/login_screen.dart';
 import 'package:kettu/ui/login/provider/login_view_model.dart';
+import 'package:kettu/ui/map/provider/map_view_model.dart';
 import 'package:kettu/ui/navigation/presentation/navigation_screen.dart';
 import 'package:kettu/ui/navigation/provider/bottom_view_model.dart';
 import 'package:kettu/ui/register/provider/register_view_model.dart';
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => LoginViewModel(),),
         ChangeNotifierProvider(create: (context) => RegisterViewModel(),),
         ChangeNotifierProvider(create: (context) => BottomNavViewModel(),),
-        ChangeNotifierProvider(create: (context) => RouteViewModel(),)
+        ChangeNotifierProvider(create: (context) => RouteViewModel(),),
+        ChangeNotifierProvider(create: (context) => MapViewModel(),),
       ],
       child: MaterialApp(
         title: 'Kettu',

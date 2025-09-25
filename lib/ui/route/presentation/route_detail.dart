@@ -1,5 +1,8 @@
+import 'package:animated_button/animated_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kettu/ui/route/provider/route_view_model.dart';
+import 'package:provider/provider.dart';
 
 import '../../../utils/constants.dart';
 
@@ -17,77 +20,88 @@ class RouteDetail extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
+            Material(
+              color: Colors.transparent,
+              child: InkWell(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                hoverColor: Colors.transparent,
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(width: .8,color: Colors.black45),
-                gradient: LinearGradient(
-                  begin: AlignmentGeometry.topLeft,
-                  end: AlignmentGeometry.bottomRight,
-                    colors: [
-                    activeDayColor.withOpacity(.2),
-                    activeDayColor.withOpacity(.4),
-                  ]
-                )
-              ),
-              padding: EdgeInsets.all(15),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                onTap: () => context.read<RouteViewModel>().openMapScren(context),
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(width: .8,color: Colors.black45),
+                      gradient: LinearGradient(
+                          begin: AlignmentGeometry.topLeft,
+                          end: AlignmentGeometry.bottomRight,
+                          colors: [
+                            activeDayColor.withOpacity(.2),
+                            activeDayColor.withOpacity(.4),
+                          ]
+                      )
+                  ),
+                  padding: EdgeInsets.all(15),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(width: 4,color: Color(0xFF475569))
-                        ),
-                      ),
-                      Container(
-                        height: 45,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          gradient: LinearGradient(
-                            begin: AlignmentGeometry.topCenter,
-                            end: AlignmentGeometry.bottomCenter,
-                            colors: [
-                              Color(0xFF475569),
-                              Colors.blueAccent
-                            ]
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(width: 4,color: Color(0xFF475569))
+                            ),
+                          ),
+                          Container(
+                            height: 45,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                gradient: LinearGradient(
+                                    begin: AlignmentGeometry.topCenter,
+                                    end: AlignmentGeometry.bottomCenter,
+                                    colors: [
+                                      Color(0xFF475569),
+                                      Colors.blueAccent
+                                    ]
+                                )
+                            ),
+              
+                            width: 4,
+                          ),
+                          Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(width: 4,color: Colors.blueAccent)
+                            ),
                           )
-                        ),
-
-                        width: 4,
+                        ],
                       ),
-                      Container(
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(width: 4,color: Colors.blueAccent)
+                      SizedBox(width: 10,),
+                      SizedBox(
+                        height: 85,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Your location",style: TextStyle(color: Color(0xFF475569),fontWeight: FontWeight.normal),),
+                            Text("Toshkent, Sergeli",style: TextStyle(color: CupertinoColors.black,fontWeight: FontWeight.normal),),
+                          ],
                         ),
+                      ),
+                      SizedBox(width: 10,),
+                      Expanded(
+                        child: Image.asset("assets/images/route_not_bg.png",fit: BoxFit.cover,),
                       )
                     ],
                   ),
-                  SizedBox(width: 10,),
-                  SizedBox(
-                    height: 85,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Your location",style: TextStyle(color: Color(0xFF475569),fontWeight: FontWeight.normal),),
-                        Text("Toshkent, Sergeli",style: TextStyle(color: CupertinoColors.black,fontWeight: FontWeight.normal),),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: ,
-                  )
-                ],
+                ),
               ),
             ),
             Card(
@@ -150,15 +164,19 @@ class RouteDetail extends StatelessWidget {
                     const SizedBox(height: 8),
                     _buildTotalRow("Total price", "\$323"),
                     const SizedBox(height: 16),
-                    MaterialButton(
-                      minWidth: double.infinity,
-                      color: Theme.of(context).colorScheme.onPrimary.withOpacity(.8),
+                    AnimatedButton(
                       onPressed: () {},
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Text("Book Now",style: TextStyle(color: Colors.white),),
+                      color: Theme.of(context).colorScheme.onPrimary.withOpacity(.8),
+                      enabled: true,
+                      disabledColor: Colors.grey,
+                      shadowDegree: ShadowDegree.light,
+                      borderRadius: 12,
+                      duration: 85,
+                      height: 40,
+                      width: MediaQuery.of(context).size.width-80,
+                      child:  Text("Book Now",style: TextStyle(color: Colors.white),),
                     ),
+
                   ],
                 ),
               ),
