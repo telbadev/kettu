@@ -9,6 +9,8 @@ class RouteViewModel extends ChangeNotifier {
     VehicleTypeEnum.bus,
   ];
 
+  int routeItemIndex = 0;
+
 
   void changeVehicle(VehicleTypeEnum value) {
     if(vehicleList.contains(value)) {
@@ -16,6 +18,12 @@ class RouteViewModel extends ChangeNotifier {
     } else {
       vehicleList.add(value);
     }
+    notifyListeners();
+  }
+
+  void selectRoute(int index) {
+    routeItemIndex = index;
+    print(routeItemIndex);
     notifyListeners();
   }
 
