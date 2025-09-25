@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../../utils/constants.dart';
 
 class RouteDetail extends StatelessWidget {
   const RouteDetail({super.key});
@@ -14,6 +17,78 @@ class RouteDetail extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(width: .8,color: Colors.black45),
+                gradient: LinearGradient(
+                  begin: AlignmentGeometry.topLeft,
+                  end: AlignmentGeometry.bottomRight,
+                    colors: [
+                    activeDayColor.withOpacity(.2),
+                    activeDayColor.withOpacity(.4),
+                  ]
+                )
+              ),
+              padding: EdgeInsets.all(15),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(width: 4,color: Color(0xFF475569))
+                            ),
+                          ),
+                          SizedBox(width: 10,),
+                          Text("Your location",style: TextStyle(color: Color(0xFF475569),fontWeight: FontWeight.normal),),
+                        ],
+                      ),
+                      Container(
+                        height: 50,
+                        margin: EdgeInsets.only(left: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          gradient: LinearGradient(
+                            begin: AlignmentGeometry.topCenter,
+                            end: AlignmentGeometry.bottomCenter,
+                            colors: [
+                              Color(0xFF475569),
+                              Colors.blueAccent
+                            ]
+                          )
+                        ),
+                        width: 4,
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(width: 4,color: Colors.blueAccent)
+                            ),
+                          ),
+                          SizedBox(width: 10,),
+                          Text("Toshkent, Sergeli",style: TextStyle(color: CupertinoColors.black,fontWeight: FontWeight.normal),),
+                        ],
+                      )
+                    ],
+                  ),
+
+                ],
+              ),
+            ),
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
